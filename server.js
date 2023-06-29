@@ -5,10 +5,7 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors())
-// 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
-const API_KEY = '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';
 const GPT_API_URL = 'https://api.openai.com/v1/engines/davinci/completions';
-// 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
 
 
 // Code Conversion Service
@@ -25,7 +22,7 @@ app.post('/convert', async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
+        'Authorization': `Bearer ${process.env.API_KEY}`
       }
     });
 
@@ -51,7 +48,7 @@ app.post('/debug', async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
+        'Authorization': `Bearer ${process.env.API_KEY}`
       }
     });
 
@@ -77,7 +74,7 @@ app.post('/check-quality', async (req, res) => {
     }, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
+        'Authorization': `Bearer ${process.env.API_KEY}`
       }
     });
 
